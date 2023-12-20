@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    maxRetries: 3
+    retryTtlInMs: 3000
+    listener:
+      simple:
+        default-requeue-rejected: false
+
+server:
+  servlet:
+    context-path: /

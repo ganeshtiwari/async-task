@@ -1,0 +1,5 @@
+com\task\aysnctask\services\AsyncRabbitListener.class
+com\task\aysnctask\AsyncTaskApplication.class
+com\task\aysnctask\configurations\RabbitConfig.class
+com\task\aysnctask\controllers\AsyncController.class
+com\task\aysnctask\services\AsyncRabbitProducer.class
