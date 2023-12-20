@@ -23,7 +23,7 @@ public class AsyncController {
     public ResponseEntity<String> simulate() {
         log.info("******** Starting simulation ********");
 
-        asyncRabbitProducer.sendToProcessingQueue("test");
+        asyncRabbitProducer.sendToProcessingQueue(generateRandomMessage());
 
         return new ResponseEntity<>("simulation started", HttpStatus.CREATED);
     }
