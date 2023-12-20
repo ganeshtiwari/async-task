@@ -35,7 +35,8 @@ For simulation purpose, the code will just throw an exception. This causes the m
 then consumed by processingConsumer until retry limit exceeds for that particular message. 
 
 ## Observation 
-Message routing to ``processingQueue``, ``retryQueue`` and ``failedQueue`` can be observed from 
-```http://localhost:15672/```. 
-``Username: guest``
-``Password: guest``
+Message routing to processingQueue, retryQueue and failedQueue can be observed from ```http://localhost:15672/```. < br/>
+```
+Username: guest
+Password: guest
+```
