@@ -43,3 +43,6 @@ The watching process, running on a separate thread, periodically monitors the jo
 is complete, it removes it from watch list. Else, it checks whether the job should be rescheduled or an alert should be sent 
 to the admin and takes that action. 
 
+## State Transition of Async Job
+![img.png](img.png)
+
