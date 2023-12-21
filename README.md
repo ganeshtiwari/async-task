@@ -41,5 +41,5 @@ status will be either `SUCCESS` or `ERROR`. <br />
 
 The watching process, running on a separate thread, periodically monitors the jobs. If the job, in the job list, 
 is complete, it removes it from watch list. Else, it checks whether the job should be rescheduled or an alert should be sent 
-to the admin. 
+to the admin and takes that action. 
 
