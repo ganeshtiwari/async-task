@@ -25,7 +25,11 @@ docker compose up --build -d
 ```
 
 ## Simulation 
-To run the async task scheduling and retry simulation send a post request: 
+To run the simulation <br />
+watch logs
+```docker logs async-app -f```
+
+send post request
 ```curl -X POST http://localhost:8080/simulate```. 
 
 This endpoint will produce a single random string message to the `processingQueue`. 

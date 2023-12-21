@@ -1,5 +1,8 @@
-com\task\aysnctask\services\AsyncRabbitListener.class
+com\task\aysnctask\services\AsyncJob.class
 com\task\aysnctask\AsyncTaskApplication.class
 com\task\aysnctask\configurations\RabbitConfig.class
+com\task\aysnctask\services\AsyncJob$AsyncJobBuilder.class
+com\task\aysnctask\services\AsyncRabbitListener.class
 com\task\aysnctask\controllers\AsyncController.class
+com\task\aysnctask\services\AsyncJobStatus.class
 com\task\aysnctask\services\AsyncRabbitProducer.class

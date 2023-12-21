@@ -2,4 +2,6 @@ C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\
 C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\configurations\RabbitConfig.java
 C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\services\AsyncRabbitProducer.java
 C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\services\AsyncRabbitListener.java
+C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\services\AsyncJobStatus.java
 C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\AsyncTaskApplication.java
+C:\Users\blink\Downloads\aysnc-task\async-task\src\main\java\com\task\aysnctask\services\AsyncJob.java
