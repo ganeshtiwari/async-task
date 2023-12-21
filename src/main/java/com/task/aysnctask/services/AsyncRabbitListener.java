@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
@@ -25,7 +26,7 @@ public class AsyncRabbitListener {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    @RabbitListener(queues = RabbitConfig.PROCESSING_QUEUE)
+    @RabbitListener(queues = RabbitConfig.PROCESSING_QUEUE, concurrency = "3-10")
     public void processingListener(Message message) throws Exception {
         String msgStr = new String(message.getBody(), StandardCharsets.UTF_8);
         long retryCount = getMessageCount(message);
@@ -35,6 +36,8 @@ public class AsyncRabbitListener {
 
         // when retires count exceed then msg in sent to filed queue
         // no further processing happens in that queue
+        TimeUnit.SECONDS.sleep(new Random().nextInt(10-3+1) + 3);
+
         if (retriesExceeded(message)) {
             log.info("Retires over. Sending message {} count {} to failed queue", msgStr, retryCount);
             sendToFailed(message);
