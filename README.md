@@ -15,12 +15,14 @@ Please make sure that the above tools are installed and configured
 properly. 
 
 ## Compilation 
-cd to async-task project directory, then do the following 
-1. ```git pull https://github.com/ganeshtiwari/async-task.git```
-2. ```cd async-task```
-3. ```docker compose up -d```  (this brings up the rabbitmq dev dependency)
-4. ```mvn clean package``` 
-5. ```java -jar target/async-task.jar```
+cd to async-task project directory, then do the following
+```
+git pull https://github.com/ganeshtiwari/async-task.git
+cd async-task
+docker compose up rabbitmq -d
+mvn clean package
+docker compose up --build -d
+```
 
 ## Simulation 
 To run the async task scheduling and retry simulation send a post request: 
