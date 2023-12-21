@@ -1,9 +1,6 @@
 # Async Task 
 Async Processor with Retry Mechanism
 
-# System Architecture
-![img_2.png](img_2.png)
-
 # Setup and Compilation 
 ## Prerequisites
 1. Maven
@@ -32,17 +29,17 @@ watch logs
 send post request
 ```curl -X POST http://localhost:8080/simulate```. 
 
-This endpoint will produce a single random string message to the `processingQueue`. 
-The active `processingConsumer` will consume this random string message. First the async consumer
-will check whether the message retry count has exceeded the `maxRetryLimit` or not. If it has exceeded
-the limit then the message is published to `failedMessageQueue` to avoid `poison mesage`. Else, we can do our business logic here. 
-For simulation purpose, the code will just throw an exception. This causes the message to be rerouted to 
-`retryQueue`. The retryQueue has a ttl of 3 seconds. Once ttl expires, the message is routed to the processingQueue (dead letter routing) which is 
-then consumed by processingConsumer until retry limit exceeds for that particular message. 
+## Execution process
+<p>
+This endpoint will produce 5 string messages to the `processingQueue`. 
+The active `processingConsumer` will consume these string messages. 
+For each message, an `AsyncJob` will be created and added to the jobs list.
+These jobs will be scheduled in an async executor service. Fist the job status will be 
+updated to `RUNNING` status and then the executing thread will sleep for some time. 
+It then randomly tries to exit execution (for simulation of retry). If it didn't exit, the 
+status will be either `SUCCESS` or `ERROR`. <br />
 
-## Observation 
-Message routing to processingQueue, retryQueue and failedQueue can be observed from ```http://localhost:15672/```. < br/>
-```
-Username: guest
-Password: guest
-```
+The watching process, running on a separate thread, periodically monitors the jobs. If the job, in the job list, 
+is complete, it removes it from watch list. Else, it checks whether the job should be rescheduled or an alert should be sent 
+to the admin. 
+</p>
