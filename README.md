@@ -30,7 +30,7 @@ send post request
 ```curl -X POST http://localhost:8080/simulate```. 
 
 ## Execution process
-<p>
+
 This endpoint will produce 5 string messages to the `processingQueue`. 
 The active `processingConsumer` will consume these string messages. 
 For each message, an `AsyncJob` will be created and added to the jobs list.
@@ -42,4 +42,4 @@ status will be either `SUCCESS` or `ERROR`. <br />
 The watching process, running on a separate thread, periodically monitors the jobs. If the job, in the job list, 
 is complete, it removes it from watch list. Else, it checks whether the job should be rescheduled or an alert should be sent 
 to the admin. 
-</p>
+
